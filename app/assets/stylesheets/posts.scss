@@ -1,0 +1,100 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+ body {
+  overflow-x: hidden;
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -8rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+  background-color: #75A9FF;
+}
+
+#sidebar-wrapper .nav-main {
+  width: 80px;
+  padding: 0.875rem 0rem;
+  font-size: 1.2rem;
+  text-align: center;
+  list-style: none;
+}
+
+#sidebar-wrapper .nav-main__home .nav-main__link {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+#sidebar-wrapper .nav-main__item .nav-main__link{
+  display: block;
+  width: 80px;
+  height: 68px;
+  padding-top: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  text-align: center;
+  color: white;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -80px
+  }
+
+  #menu-toggle {
+    border-style: none;
+    background-color: #efede0;
+  }
+
+  #navbarSupportedContent .nav-item {
+    padding-left: 20px;
+  }
+  #navbarSupportedContent .btn-primary {
+    background-color: #75A9FF;
+    border-color: #75A9FF;
+  }
+
+  .posts-form{
+    max-width: 540px;
+    padding: 10px 20px;
+    background: #efede0;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .regist-form {
+    text-align:  center;
+  }
+
+  .regist-form .btn {
+    margin-top: 30px;
+    background-color: #75A9FF;
+    border-color: #75A9FF;
+    display: inline-block;
+  }
+}
