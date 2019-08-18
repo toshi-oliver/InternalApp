@@ -4,7 +4,7 @@
     <nav class="nav-main__nav" id="sidebar-wrapper">
       <ul class="nav-main">
         <li class="nav-main__home">
-          <a class="nav-main__link" href="#">
+          <a class="nav-main__link" href="/">
             <i class="nav-main__icon fa fa-file-text-o"></i>
             <span class="nav-main__label">On Tech</span>
           </a>
@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <button class="btn btn-primary" href="#">新規登録</button>
+              <%= link_to 'ユーザー管理', admin_users_path, class: 'btn btn-primary' %>
             </li>
             <li class="nav-item">
               <button class="btn btn-primary" href="#">ログイン</button>

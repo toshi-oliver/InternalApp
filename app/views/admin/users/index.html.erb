@@ -1,64 +1,50 @@
-<body class="bg-dark">
-
-  <div class="container">
-    <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                  <label for="firstName">First name</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
-                  <label for="lastName">Last name</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-              <label for="inputEmail">Email address</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-                  <label for="inputPassword"></label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                  <label for="confirmPassword">確認パスワード</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
-        </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">Login Page</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-        </div>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light border-bottom" style="background-color:#efede0;">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="nav-main__home">
+      <a class="nav-main__link" href="/">
+        <i class="nav-main__icon fa fa-file-text-o"></i>
+        <span class="nav-main__label">On Tech</span>
+      </a>
     </div>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <button class="btn btn-primary" href="#">ログイン</button>
+      </li>
+    </ul>
   </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-</body>
-
+</nav>　　
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+  <h1 class="mt-4" style="text-align: center;">ユーザーリスト</h1>
+<div class="users-wrapper">
+  <%= link_to 'ユーザー追加', new_admin_user_path, class: "btn btn-primary" %>
+  <div class='users-list'>
+    <table class="table table-hover boards__table">
+      <thead class="thead">
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>管理者権限</th>
+          <th>メールアドレス</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.admin? ? 'あり ' : 'なし '%></td>
+            <td><%= user.email %></td>
+            <td>
+              <%= link_to '編集', edit_admin_user_path(user), class: 'btn btn-outline-dark' %>
+              <%= link_to '削除', admin_user_path(user), class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
