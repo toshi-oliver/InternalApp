@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  #どの画面でもログインしているか確認するためにApplicationControllerにcurrent_userメソッドを記載
-  helper_method :current_user
-
+  protect_from_forgery with: :exception
+  before_action :current_user
+  #helper_methodは使えない。なぜ？
   private
 
   def current_user
