@@ -30,14 +30,13 @@
 
       <nav class="navbar navbar-expand-lg navbar-light border-bottom" style="background-color:#efede0;">
         <button class="fas fa-bars fa-2x" id="menu-toggle"></button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
               <%= link_to 'ユーザー管理', admin_users_path, class: 'btn btn-primary' %>
             </li>
             <li class="nav-item">
-              <button class="btn btn-primary" href="#">ログイン</button>
+              <%= link_to 'ログイン', login_path, class: 'btn btn-primary' %>
             </li>
           </ul>
         </div>
