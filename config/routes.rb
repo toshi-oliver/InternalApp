@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  #ログイン&ログアウト
   get '/login', to: 'sessions#new'
-  get '/login', to: 'sessions#create'
+  post '/login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  #サインアップ
   namespace :admin do
     resources :users
   end

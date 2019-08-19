@@ -35,9 +35,13 @@
             <li class="nav-item">
               <%= link_to 'ユーザー管理', admin_users_path, class: 'btn btn-primary' %>
             </li>
+          <% if @current_user %>
             <li class="nav-item">
               <%= link_to 'ログイン', login_path, class: 'btn btn-primary' %>
+          <% else %>
+              <%= link_to 'ログアウト', login_path, class: 'btn btn-primary' %>
             </li>
+          <% end %>
           </ul>
         </div>
       </nav>
