@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light border-bottom" style="background-color:#efede0;">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="nav-main__home">
+      <a class="nav-main__link" href="/">
+        <i class="nav-main__icon fa fa-file-text-o"></i>
+        <span class="nav-main__label">On Tech</span>
+      </a>
+    </div>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+      <% if @current_user %>
+        <%= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to 'ログイン', login_path, class: 'btn btn-primary' %>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>　　
+<% if flash[:notice] %>
+<div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+<h1 class="mt-4" style="text-align: center;">ユーザーリスト</h1>
+<div class="users-wrapper">
+  <%= link_to 'ユーザー追加', new_admin_user_path, class: "btn btn-primary" %>
+  <div class='users-list'>
+    <table class="table table-hover boards__table">
+      <thead class="thead">
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>管理者権限</th>
+          <th>メールアドレス</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.admin? ? 'あり ' : 'なし '%></td>
+            <td><%= user.email %></td>
+            <td>
+              <%= link_to '編集', edit_admin_user_path(user), class: 'btn btn-info' %>
+              <%= link_to '削除', admin_user_path(user), method: :delete, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

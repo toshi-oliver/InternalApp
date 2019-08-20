@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light border-bottom" style="background-color:#efede0;">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="nav-main__home">
+      <a class="nav-main__link" href="/">
+        <i class="nav-main__icon fa fa-file-text-o"></i>
+        <span class="nav-main__label">On Tech</span>
+      </a>
+    </div>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+      <% if @current_user %>
+        <%= link_to 'ユーザーリスト', admin_users_path, class: 'btn btn-primary' %>
+        <%= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to 'ログイン', login_path, class: 'btn btn-primary' %>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h1 class="mt-4" style="text-align: center;">ログイン</h1>
+<div class='login-form'>
+  <%= form_with(scope: :session, local: true) do |f| %>
+    <div class="form-group">
+      <%= f.label :email, 'メールアドレス' %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, 'パスワード(8文字以上)' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="regist-form">
+      <%= f.submit 'ログインする', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,36 @@
+// Place all the styles related to the Admin::Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  overflow-x: hidden;
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+.signup-form, .users-wrapper, .login-form{
+  max-width: 780px;
+  padding: 10px 20px;
+  background: #efede0;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.regist-form {
+  text-align:  center;
+  .btn {
+  margin-top: 30px;
+  background-color: #75A9FF;
+  border-color: #75A9FF;
+  display: inline-block;
+  }
+}
+
+.btn-primary {
+  margin-left: 15px;
+  background-color: #75A9FF;
+  border-color: #75A9FF;
+}
+
+.users-list {
+  margin-top: 15px;
+}
