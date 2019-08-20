@@ -17,10 +17,10 @@
     </ul>
   </div>
 </nav>　　
-  <% if flash[:notice] %>
-    <div class="alert alert-danger"><%= flash[:notice] %></div>
-  <% end %>
-  <h1 class="mt-4" style="text-align: center;">ユーザーリスト</h1>
+<% if flash[:notice] %>
+<div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+<h1 class="mt-4" style="text-align: center;">ユーザーリスト</h1>
 <div class="users-wrapper">
   <%= link_to 'ユーザー追加', new_admin_user_path, class: "btn btn-primary" %>
   <div class='users-list'>
