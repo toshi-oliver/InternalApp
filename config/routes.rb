@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'posts/show'
+  get 'posts/new'
+  get 'posts/edit'
   #ログイン&ログアウト
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
