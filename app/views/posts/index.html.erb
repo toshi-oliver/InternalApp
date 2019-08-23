@@ -2,11 +2,11 @@
     <% if flash[:notice] %>
       <div class="alert alert-danger"><%= flash[:notice] %></div>
     <% end %>
-      <div class="container-fluid">
+      <div class="container-fluid"> 
         <h1 class="mt-4" style="text-align: center;">PARKING</h1>
         <h3 class="mt-1" style="text-align: center;">On Tech</h3>
         <div class="posts-form">
-
+          <%= form_with(model: [ :admin, @user ], local: true) do |f| %>
           <label for="station">1.最寄駅をご記入ください</label>
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="basic-url">
@@ -17,12 +17,20 @@
             <input type="text" class="form-control" id="basic-url">
           </div>
 
-          <label for="management">3.現在、駐車場運営の有無をお選びください</label>
-            <div class="input-group mb-3">
-              <select class="custom-select" id="inputGroupSelect01">
-                <option value="1">有</option>
-                <option value="2">無</option>
-              </select>
+          <label for="parking_present">3.現在、駐車場運営の有無をお選びください</label>
+          <div class="form-group">
+            <div class="col-sm-2">
+              <%= f.label :parking_present, '3.現在、駐車場運営の有無をお選びください', {class: 'form-label'} %>
+            </div>
+            <div class="col-sm-10 btn-group" data-toggle="buttons">
+              <label class="btn btn-outline-secondary active" style="width:50%">
+                <%= f.radio_button :parking_present, 0, {checked: true} %> 有
+              </label>
+              <label class="btn btn-outline-secondary" style="width:50%">
+                <%= f.radio_button :parking_present, 1, {} %> 無
+              </label>
+            </div>
+          </div>
             </div>
 
           <label for="station">4.運営している場合、運用期間をご記入下さい</label>

@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_203258) do
+ActiveRecord::Schema.define(version: 2019_08_23_042126) do
+
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "client_name", null: false
+    t.string "email", null: false
+    t.string "near_station"
+    t.string "parking_address", null: false
+    t.integer "parking_present"
+    t.integer "year_period"
+    t.integer "month_period"
+    t.integer "cancellation_money"
+    t.integer "rent"
+    t.integer "tax_type"
+    t.integer "land_estate"
+    t.integer "parking_possible_number"
+    t.integer "parking_size"
+    t.integer "parling_size_unit"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "desired_rent"
+    t.text "client_textarea"
+    t.text "user_textarea"
+    t.bigint "user_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_name"], name: "index_posts_on_client_name"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -22,4 +50,5 @@ ActiveRecord::Schema.define(version: 2019_08_13_203258) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "posts", "users"
 end
