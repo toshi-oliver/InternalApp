@@ -1,5 +1,14 @@
 ja:
   activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{error}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    models:
+      user: ユーザー
+      post: 査定
     attribute:
       user:
         name: 名前
@@ -9,3 +18,25 @@ ja:
         password_confirmation: パスワード(確認)
         created_at: 登録日時
         updated_at: 更新日時
+      post:
+        client_name: 顧客氏名
+        email: メールアドレス
+        near_station: 最寄駅
+        parking_address: 駐車場住所
+        parking_present: 駐車場運営の有無
+        year_period: 運用期間(年)
+        month_period: 運用期間(月)
+        parking_present: 中途解約金の有無
+        cancellation_money: 解約金
+        rent: 1ヶ月賃貸料
+        tax_type: 税区分
+        land_estate: 土地の状況
+        parking_possible_number: 駐車可能な台数
+        parking_size: 駐車場の面積
+        parling_size_unit: 面積の単位
+        start_date: 利用期間(開始日)
+        end_date: 利用期間(終了日)
+        desired_rent: 希望賃貸料
+        client_textarea: その他特記事項(顧客用)
+        user_textarea: その他特記事項(社員用)
+        deleted_at: 削除日時
