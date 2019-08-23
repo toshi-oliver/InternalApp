@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'posts#index'
+  root to: 'posts#new'
   resources :posts
   #ログイン&ログアウト
   get '/login', to: 'sessions#new'
