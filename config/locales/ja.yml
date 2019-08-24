@@ -9,7 +9,7 @@ ja:
     models:
       user: ユーザー
       post: 査定
-    attribute:
+    attributes:
       user:
         name: 名前
         email: メールアドレス
@@ -26,7 +26,7 @@ ja:
         parking_present: 駐車場運営の有無
         year_period: 運用期間(年)
         month_period: 運用期間(月)
-        parking_present: 中途解約金の有無
+        midterm_cancellation: 中途解約金の有無
         cancellation_money: 解約金
         rent: 1ヶ月賃貸料
         tax_type: 税区分
@@ -40,3 +40,10 @@ ja:
         client_textarea: その他特記事項(顧客用)
         user_textarea: その他特記事項(社員用)
         deleted_at: 削除日時
+    helpers:
+      select:
+        prompt: 選択してください
+      submit:
+        create: 登録する
+        submit: 保存する
+        update: 更新する

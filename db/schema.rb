@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_042126) do
+ActiveRecord::Schema.define(version: 2019_08_24_080515) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "client_name", null: false
     t.string "email", null: false
     t.string "near_station"
     t.string "parking_address", null: false
-    t.integer "parking_present"
+    t.boolean "midterm_cancellation", default: true
     t.integer "year_period"
     t.integer "month_period"
     t.integer "cancellation_money"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_042126) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "parking_present", default: true, null: false
     t.index ["client_name"], name: "index_posts_on_client_name"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
