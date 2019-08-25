@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_065027) do
+ActiveRecord::Schema.define(version: 2019_08_25_113557) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "client_name", null: false
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 2019_08_25_065027) do
     t.integer "month_period"
     t.integer "cancellation_money"
     t.integer "rent"
-    t.integer "tax_type"
-    t.integer "land_estate"
+    t.string "tax_type"
+    t.string "land_estate"
     t.integer "parking_possible_number"
     t.integer "parking_size"
-    t.integer "parking_size_unit"
+    t.string "parking_size_unit"
     t.date "start_date"
     t.date "end_date"
     t.integer "desired_rent"

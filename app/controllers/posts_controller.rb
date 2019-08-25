@@ -9,8 +9,12 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-    post.save!
-    redirect_to new_post_path, notice: "「#{post.client_name}様」の査定申し込みを受け付けました。"
+
+    if post.save
+      redirect_to new_post_path(post), notice: "「#{post.client_name}様」の査定申し込みを受け付けました。"
+    else
+      render :new
+    end
   end
 
   def new

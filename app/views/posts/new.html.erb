@@ -91,14 +91,14 @@
             <div class="form-group">
               <%= f.label :tax_type, '10.税区分をお選びください', {class: 'form-label'} %>
               <div class="input-group mb-3">
-                <%= f.select :tax_type, options_for_select(Post.tax_types), { :prompt => "選択してください" }, {class: "custom-select"} %>
+                <%= f.select :tax_type, [["税込","税込"], ["税抜","税抜"], ["非課税","非課税"]],{ :prompt => "選択してください" }, {class: "custom-select"} %>
               </div>
             </div>
 
             <div class="form-group">
               <%= f.label :land_estate, '11.現在の土地の状況をお選びください', {class: 'form-label'} %>
               <div class="input-group mb-3">
-                <%= f.select :land_estate, options_for_select(Post.land_estates), { :prompt => "選択してください" }, {class: "custom-select"} %>
+                <%= f.select :land_estate, [["更地","更地"], ["アスファルト","アスファルト"], ["砂石","砂石"]], { :prompt => "選択してください" }, {class: "custom-select"} %>
               </div>
             </div>
 
@@ -116,7 +116,7 @@
               <%= f.label :parking_size, '13.駐車場の面積をご記入ください', {class: 'form-label'} %>
               <div class="input-group mb-3" >
                 <%= f.text_field :parking_size, class:"form-control", style:"width:88%" %>
-                <%= f.select :parking_size_unit, options_for_select(Post.parking_size_units), {:prompt => "-"} , class:"input-group-text", style:"width:12%" %>
+                <%= f.select :parking_size_unit, [["平米","平米"], ["坪","坪"]], {:prompt => "-"} , class:"input-group-text", style:"width:12%" %>
               </div>
             </div>
 
