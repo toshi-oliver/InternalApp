@@ -5,16 +5,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def create
     post = Post.new(post_params)
-
-    if post.save
-      redirect_to new_post_path(post), notice: "「#{post.client_name}様」の査定申し込みを受け付けました。"
-    else
-      render :new
-    end
+    post.save!
+    redirect_to new_post_path(post), notice: "「#{post.client_name}様」の査定申し込みを受け付けました。"
   end
 
   def new
@@ -22,6 +19,13 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Post.find(params[:id])
+    post.update!(post_params)
+    redirect_to post_path(post), notice: "「査定No.#{post.id}」のステータスを更新しました。"
   end
 
   def destroy

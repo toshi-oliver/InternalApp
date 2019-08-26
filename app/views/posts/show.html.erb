@@ -1,2 +1,95 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<% if flash[:notice] %>
+  <div class="alert alert-primary"><%= flash[:notice] %></div>
+<% end %>
+
+<h2 class="mt-4" style="text-align: center;">査定詳細</h2>
+<div class="post-show-wrapper">
+  <div class='post-show-list'>
+    <div class="post-show-list-top">
+      <%= link_to '一覧', posts_path, class: 'btn btn-info' %>
+      <%= link_to '編集', edit_post_path(@post), class: 'btn btn-warning' %>
+      <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
+    </div>    
+      <table class="table table-hover posts__table">
+        <tbody>
+          <tr>
+            <th>査定ID:</th>
+            <td><%= @post.id %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス:</th>
+            <td><%= @post.email %></td>
+          </tr>
+          <tr>
+            <th>最寄駅:</th>
+            <td><%= @post.near_station %></td>
+          </tr>
+          <tr>
+            <th>駐車場住所:</th>
+            <td><%= @post.parking_address %></td>
+          </tr>
+          <tr>
+            <th>駐車場運営の有無:</th>
+            <td><%= @post.parking_present %></td>
+          </tr>
+          <tr>
+            <th>運営期間:</th>
+            <td><%= @post.year_period %>年<%= @post.month_period %>ヶ月</td>
+          </tr>
+          <tr>
+            <th>中途解約金の有無:</th>
+            <td><%= @post.midterm_cancellation %></td>
+          </tr>
+          <tr>
+            <th>中途解約金:</th>
+            <td><%= @post.cancellation_money %>円</td>
+          </tr>
+          <tr>
+            <th>1ヵ月賃料:</th>
+            <td><%= @post.rent %>円/月</td>
+          </tr>
+          <tr>
+            <th>税区分:</th>
+            <td><%= @post.tax_type  %></td>
+          </tr>
+          <tr>
+            <th>土地の状況:</th>
+            <td><%= @post.land_estate %></td>
+          </tr>
+          <tr>
+            <th>駐車可能な台数:</th>
+            <td><%= @post.parking_possible_number %></td>
+          </tr>
+          <tr>
+            <th>駐車場面積:</th>
+            <td><%= @post.parking_size %><%= @post.parking_size_unit %></td>
+          </tr>
+          <tr>
+            <th>利用期間:</th>
+            <td>開始:<%= @post.start_date %>〜終了:<%= @post.end_date %></td>
+          </tr>
+          <tr>
+            <th>希望の1ヶ月賃料:</th>
+            <td><%= @post.desired_rent %></td>
+          </tr>
+          <tr>
+            <th>その他特記事項(顧客):</th>
+            <td><%= simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div") %></td>
+          </tr>
+          <tr>
+            <th>その他特記事項(社員用):</th>
+            <td><%= simple_format(h(@post.user_textarea),{}, sanitize: false, wrapper_tag: "div") %></td>
+            <td><%= %></td>
+          </tr>
+          <tr>
+            <th>作成日時:</th>
+            <td><%= @post.created_at%></td>
+          </tr>
+          <tr>
+            <th>更新日時:</th>
+            <td><%= @post.updated_at%></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

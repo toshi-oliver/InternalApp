@@ -1,9 +1,10 @@
-<h2 class="mt-4" >査定リスト</h2>
+<h2 class="mt-4" style="text-align: center;">査定リスト</h2>
 <div class="posts-wrapper">
   <div class='posts-list'>
     <table class="table table-hover boards__table">
       <thead class="thead">
         <tr>
+          <th></th>
           <th>査定No</th>
           <th>顧客氏名</th>
           <th>メールアドレス</th>
@@ -11,13 +12,16 @@
           <th>運営</th>
           <th>賃料(¥/月)</th>
           <th>駐車台数</th>
-          <th>特記事項(顧客用)</th>
-          <th>特記事項(社員用)</th>
+          <th>特記事項<br>(顧客用)</th>
+          <th>特記事項<br>(社員用)</th>
         </tr>
       </thead>
       <tbody>
         <% @posts.each do |post| %>
           <tr>
+            <td>
+              <%= link_to '詳細', post_path(post), class: "btn btn-primary" %>
+            </td>
             <td><%= post.id %></td>
             <td><%= post.client_name %></td>
             <td><%= post.email %></td>
@@ -27,8 +31,7 @@
             <td><%= post.parking_possible_number %></td>
             <td><%= post.client_textarea %></td>
             <td><%= post.user_textarea %></td>
-            <td>
-          </tr>
+        　</tr>
         <% end %>
       </tbody>
     </table>

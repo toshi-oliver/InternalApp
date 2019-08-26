@@ -2,7 +2,7 @@
 <div class="users-wrapper">
   <%= link_to 'ユーザー追加', new_admin_user_path, class: "btn btn-primary" %>
   <div class='users-list'>
-    <table class="table table-hover boards__table">
+    <table class="table table-hover users__table">
       <thead class="thead">
         <tr>
           <th>ID</th>
@@ -22,7 +22,7 @@
             <td><%= user.email %></td>
             <td>
               <%= link_to '編集', edit_admin_user_path(user), class: 'btn btn-info' %>
-              <%= link_to '削除', admin_user_path(user), method: :delete, class: 'btn btn-danger' %>
+              <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
             </td>
           </tr>
         <% end %>

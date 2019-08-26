@@ -1,6 +1,6 @@
   <!-- Page Content -->
     <% if flash[:notice] %>
-      <div class="alert alert-danger"><%= flash[:notice] %></div>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
     <% end %>
       <div class="container-fluid"> 
         <h1 class="mt-4" style="text-align: center;">PARKING</h1>
@@ -149,7 +149,7 @@
             <div class="form-group">
               <%= f.label :client_textarea, '16.その他特記事項（ご相談・お悩みなど）', {class: 'form-label'} %>
               <div class="input-group mb-3">
-                <%= f.text_area :client_textarea, class: "form-control" %>
+                <%= f.text_area :client_textarea, rows: 5, class: "form-control" %>
               </div>
             </div>
 

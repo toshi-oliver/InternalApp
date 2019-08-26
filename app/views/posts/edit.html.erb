@@ -1,2 +1,157 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+  <h2 class="mt-4" style="text-align: center;">査定データの編集</h2>
+  <div class="posts-form">
+    <%= form_with model: @post, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :client_name, '1.氏名をご記入ください' %>
+        <%= f.text_field :client_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, '2.メールアドレスをご記入ください' %>
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :near_station, '3.最寄り駅をご記入ください' %>
+        <%= f.text_field :near_station, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :parking_address, '4.駐車場住所をご記入ください' %>
+        <%= f.text_field :parking_address, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :parking_present, '5.現在、駐車場運営の有無をお選びください', {class: 'form-label'} %>
+        <div class="input-group mb-3" data-toggle="buttons">
+          <label class="btn btn-outline-secondary active" style="width:50%">
+            <%= f.radio_button :parking_present, true, {checked: true} %> 有
+          </label>
+          <label class="btn btn-outline-secondary" style="width:50%">
+            <%= f.radio_button :parking_present, false, {} %> 無
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :period, '6.運営期間をご記入ください', {class: 'form-label'} %>
+        <div class="input-group mb-3">
+          <%= f.select :year_period, options_for_select(0..99),  { :prompt => "選択してください" }, {class: 'custom-select'} %>
+          <div class="input-group-append">
+            <span class="input-group-text">年</span>
+          </div>
+          <%= f.select :month_period, options_for_select(0..12), { :prompt => "選択してください" }, {class: 'custom-select'} %>
+          <div class="input-group-append">
+            <span class="input-group-text">月</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :midterm_cancellation, '7.中途解約金の有無をお選びください', {class: 'form-label'} %>
+        <div class="input-group mb-3" data-toggle="buttons">
+          <label class="btn btn-outline-secondary active" style="width:50%">
+            <%= f.radio_button :midterm_cancellation, true, {checked: true} %> 有
+          </label>
+          <label class="btn btn-outline-secondary" style="width:50%">
+            <%= f.radio_button :midterm_cancellation, false, {} %> 無
+          </label>
+        </div>
+
+        <div class="form-group">
+        <%= f.label :cancellation_money, '8.中途解約金をご記入ください', {class: 'form-label'} %>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">¥</span>
+          </div>
+          <%= f.text_field :cancellation_money, class: 'form-control' %>
+          <div class="input-group-append">
+            <span class="input-group-text">円</span>
+          </div>
+        </div>
+
+      <div class="form-group">
+      <%= f.label :rent, '9.現在の1ヶ月賃料をご記入ください', {class: 'form-label'} %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">¥</span>
+        </div>
+        <%= f.text_field :rent, class: 'form-control' %>
+        <div class="input-group-append">
+          <span class="input-group-text">円/月</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :tax_type, '10.税区分をお選びください', {class: 'form-label'} %>
+        <div class="input-group mb-3">
+          <%= f.select :tax_type, [["税込","税込"], ["税抜","税抜"], ["非課税","非課税"]],{ :prompt => "選択してください" }, {class: "custom-select"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :land_estate, '11.現在の土地の状況をお選びください', {class: 'form-label'} %>
+        <div class="input-group mb-3">
+          <%= f.select :land_estate, [["更地","更地"], ["アスファルト","アスファルト"], ["砂石","砂石"]], { :prompt => "選択してください" }, {class: "custom-select"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :parking_possible_number, '12.駐車可能な台数をご記入ください', {class: 'form-label'} %>
+        <div class="input-group mb-3">
+          <%= f.text_field :parking_possible_number, class: 'form-control' %>
+          <div class="input-group-append">
+            <span class="input-group-text">台</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :parking_size, '13.駐車場の面積をご記入ください', {class: 'form-label'} %>
+        <div class="input-group mb-3" >
+          <%= f.text_field :parking_size, class:"form-control", style:"width:88%" %>
+          <%= f.select :parking_size_unit, [["平米","平米"], ["坪","坪"]], {:prompt => "-"} , class:"input-group-text", style:"width:12%" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :date, '14.利用期間をご記入ください', {class: 'form-label'} %>
+        <div class="input-group mb-3" >
+          <div class="input-group-prepend">
+            <span class="input-group-text">開始</span>
+          </div>
+          <%= f.date_field :start_date, {class: "form-control"} %>
+          <div class="input-group-prepend">
+            <span class="input-group-text">終了</span>
+          </div>
+          <%= f.date_field :end_date, {class: "form-control"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+      <%= f.label :desired_rent, '15.希望の1ヶ月賃料をご記入ください', {class: 'form-label'} %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">¥</span>
+        </div>
+        <%= f.text_field :desired_rent, {class: 'form-control'} %>
+        <div class="input-group-append">
+          <span class="input-group-text">円/月</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :client_textarea, '16.その他特記事項（ご相談・お悩みなど）', {class: 'form-label'} %>
+        <div class="input-group mb-3">
+          <%= f.text_area :client_textarea, rows: 5, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="regist-form">
+        <%= f.submit "登録する", {class: "btn btn-primary"} %>
+      </div>
+    <% end %>
+  </div>
