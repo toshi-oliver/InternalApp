@@ -10,8 +10,14 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-    post.save!
-    redirect_to new_post_path(post), notice: "「#{post.client_name}様」の査定申し込みを受け付けました。"
+
+    if post.save
+      redirect_to new_post_path(post), notice: "「#{post.client_name}様」の査定申し込みを受け付けました。"
+    else
+      redirect_to new_post_path(post)
+      #このパスに引数を設定してやらなと、post.saveがfalseでnewアクションが呼び出された時に、postインスタンスがない状態になるのでエラーが発生
+
+    end
   end
 
   def new
@@ -24,8 +30,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update!(post_params)
-    redirect_to post_path(post), notice: "「査定No.#{@post.id}」のステータスを更新しました。"
+
+    if @post.update(post_params)
+      redirect_to post_path(post), notice: "「査定No.#{@post.id}」のステータスを更新しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
