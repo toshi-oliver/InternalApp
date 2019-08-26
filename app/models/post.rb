@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   acts_as_paranoid
-  belongs_to :user
+  belongs_to :user, optional: true 
+  #「optional:true」を追加しないとuser_idがnillの場合エラー => つまり、データベースにアクセスできないので、createとupdateアクションが使えない。
 
   validates :client_name, presence: true
   validates :email, presence: true
