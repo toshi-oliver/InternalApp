@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client_name: MyString
+  email: MyString
+  near_station: MyString
+  parking_address: MyString
+  parking_present: 1
+  year_period: 
+  month_period: 
+  parking_present: 
+  cancellation_money: 
+  rent: 
+  tax_type: 
+  land_estate: 
+  parlom: MyString
+
+two:
+  client_name: MyString
+  email: MyString
+  near_station: MyString
+  parking_address: MyString
+  parking_present: 1
+  year_period: 
+  month_period: 
+  parking_present: 
+  cancellation_money: 
+  rent: 
+  tax_type: 
+  land_estate: 
+  parlom: MyString

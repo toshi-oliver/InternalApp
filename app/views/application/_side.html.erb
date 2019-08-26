@@ -12,11 +12,10 @@
         <span class="nav-main__label">HOME</span>
       </a>
     </li>
+    <% if @current_user %>
     <li class="nav-main__item">
-      <a class="nav-main__link" href="#">
-        <i class="nav-main__icon fa fa-file-text-o"></i>
-        <span class="nav-main__label">LINK</span>
-      </a>
+      <%= link_to 'LIST', posts_path, class: "nav-main__link" %>
     </li>
+    <% end %>
   </ul>
 </nav>
