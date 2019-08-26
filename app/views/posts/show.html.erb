@@ -75,11 +75,12 @@
           <tr>
             <th>その他特記事項(顧客):</th>
             <td><%= simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div") %></td>
+            <td><%= auto_link(simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
           </tr>
           <tr>
             <th>その他特記事項(社員用):</th>
             <td><%= simple_format(h(@post.user_textarea),{}, sanitize: false, wrapper_tag: "div") %></td>
-            <td><%= %></td>
+            <td><%= auto_link(simple_format(h(@post.user_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
           </tr>
           <tr>
             <th>作成日時:</th>
