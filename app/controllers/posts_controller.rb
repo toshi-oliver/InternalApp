@@ -23,17 +23,20 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update!(post_params)
-    redirect_to post_path(post), notice: "「査定No.#{post.id}」のステータスを更新しました。"
+    @post = Post.find(params[:id])
+    @post.update!(post_params)
+    redirect_to post_path(post), notice: "「査定No.#{@post.id}」のステータスを更新しました。"
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, notice: "「査定No.#{@post.id}」のステータスを削除しました。"
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:client_name, :email, :near_station, :parking_address, :parking_present, :year_period, :month_period, :midterm_cancellation, :cancellation_money, :rent, :tax_type, :land_estate, :parking_possible_number, :parking_size, :parking_size_unit, :start_date, :end_date, :desired_rent, :client_textarea)
+    params.require(:post).permit(:client_name, :email, :near_station, :parking_address, :parking_present, :year_period, :month_period, :midterm_cancellation, :cancellation_money, :rent, :tax_type, :land_estate, :parking_possible_number, :parking_size, :parking_size_unit, :start_date, :end_date, :desired_rent, :client_textarea, :user_textarea)
   end
 end

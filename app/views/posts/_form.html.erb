@@ -1,7 +1,3 @@
-<% if flash[:notice] %>
-  <div class="alert alert-success"><%= flash[:notice] %></div>
-<% end %>
-  <h2 class="mt-4" style="text-align: center;">査定データの編集</h2>
 <div class="posts-form">
   <%= form_with model: @post, local: true do |f| %>
     <div class="form-group">
@@ -144,16 +140,9 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :client_textarea, '16.その他特記事項（顧客用）', {class: 'form-label'} %>
+      <%= f.label :client_textarea, '16.その他特記事項（ご相談・お悩みなど）', {class: 'form-label'} %>
       <div class="input-group mb-3">
         <%= f.text_area :client_textarea, rows: 5, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :user_textarea, '17.その他特記事項（社員用）', {class: 'form-label'} %>
-      <div class="input-group mb-3">
-        <%= f.text_area :user_textarea, rows: 5, class: "form-control" %>
       </div>
     </div>
 

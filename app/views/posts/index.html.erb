@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+  <div class="alert alert-danger"><%= flash[:notice] %></div>
+<%end%>
 <h2 class="mt-4" style="text-align: center;">査定リスト</h2>
 <div class="posts-wrapper">
   <div class='posts-list'>
