@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   before_action :require_login, except: [:new, :create]
 
   def index
-      @posts = Post.all.recent
+      @q = Post.ransack(params[:q])
+      @users = User.all
+      @posts = @q.result(distinct: true).recent
   end
 
   def show
@@ -10,12 +12,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-
-    if post.save
-      redirect_to new_post_path(post), notice: "「#{post.client_name}様」の査定申し込みを受け付けました。"
+    if current_user
+      @post = current_user.posts.new(post_params) #ハードコーディング、もっと簡単に書く方法ない？
     else
-      redirect_to new_post_path(post)
+      @post = Post.new(post_params)
+    end
+
+    if @post.save
+      redirect_to new_post_path(@post), notice: "「#{@post.client_name}様」の査定申し込みを受け付けました。"
+    else
+      redirect_to new_post_path(@post)
       #このパスに引数を設定してやらなと、post.saveがfalseでnewアクションが呼び出された時に、postインスタンスがない状態になるのでエラーが発生
 
     end

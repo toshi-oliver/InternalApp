@@ -1,17 +1,33 @@
 <% if flash[:notice] %>
   <div class="alert alert-danger"><%= flash[:notice] %></div>
-<%end%>
+<% end %>
 <h2 class="mt-4" style="text-align: center;">査定リスト</h2>
-<div class="posts-wrapper">
-  <div class='posts-list'>
+
+<div class="posts-wrapper" >
+<%= search_form_for @q, class: "mb-5" do |f|%>
+  <div class= "form-row" >
+    <div class= "col-sm-3" >
+      <%= f.label :user_id_eq, "社員名", { class: "col-sm-5 col-form-label" } %>
+        <%= f.collection_select :user_id_eq, @users, :id, :name, { :include_blank => "指定なし" }, class: "form-control"%>
+    </div>
+    <div class="col-sm-3" >
+      <%= f.label :parking_present_eq, "駐車場運営", { class: "col-sm-5 col-form-label" } %>
+      <%= f.collection_select :parking_present_eq, @posts, :id, :parking_present, { :include_blank => "指定なし" }, class: "form-control"%>
+    </div>
+  <div>
+  <div class="form-group">
+    <%= f.submit "検索", {class: "btn btn-primary"} %>
+  </div>
+<% end %>
+  <div class="posts-list">
     <table class="table table-hover boards__table">
       <thead class="thead">
         <tr>
           <th></th>
-          <th>査定No</th>
-          <th>顧客氏名</th>
-          <th>メールアドレス</th>
-          <th>駐車場住所</th>
+          <th>NO</th>
+          <th>氏名</th>
+          <th>メール</th>
+          <th>住所</th>
           <th>運営</th>
           <th>賃料(¥/月)</th>
           <th>駐車台数</th>
@@ -23,13 +39,13 @@
         <% @posts.each do |post| %>
           <tr>
             <td>
-              <%= link_to '詳細', post_path(post), class: "btn btn-primary" %>
             </td>
             <td><%= post.id %></td>
-            <td><%= post.client_name %></td>
+              
+            <td><%= link_to post.client_name, post_path(post) %></td>
             <td><%= post.email %></td>
             <td><%= post.parking_address %></td>
-            <td><%= post.parking_present? ? 'あり ' : 'なし ' %></td>
+            <td><%= post.parking_present? ? "有" : "無" %></td>
             <td><%= post.rent %></td>
             <td><%= post.parking_possible_number %></td>
             <td><%= post.client_textarea %></td>
