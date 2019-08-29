@@ -1,5 +1,12 @@
+<% if @post.errors.present?%>
+  <ul id="error_explanation">
+    <% @post.errors.full_message.each do |message|%>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <div class="post-form">
-  <%= form_with model: @post, local: true do |f| %>
+  <%= form_with model: @post, local: true, url: confirm_new_post_path do |f| %>
     <div class="form-group">
       <%= f.label :client_name, '1.氏名をご記入ください' %>
       <%= f.text_field :client_name, class: 'form-control' %>
@@ -147,7 +154,7 @@
     </div>
 
     <div class="regist-form">
-      <%= f.submit "登録する", {class: "btn btn-primary"} %>
+      <%= f.submit "確認する", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
