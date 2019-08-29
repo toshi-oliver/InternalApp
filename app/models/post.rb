@@ -7,5 +7,6 @@ class Post < ApplicationRecord
   validates :email, presence: true
   validates :parking_address, presence: true, uniqueness: true
 
+
   scope :recent, -> { order(created_at: :desc) }
 end
