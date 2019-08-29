@@ -8,11 +8,11 @@
   <div class= "form-row" >
     <div class= "col-sm-3" >
       <%= f.label :user_id_eq, "社員名", { class: "col-sm-5 col-form-label" } %>
-        <%= f.collection_select :user_id_eq, @users, :id, :name, { :include_blank => "指定なし" }, class: "form-control"%>
+        <%= f.collection_select :user_id_eq, @users, :id, :name, { :include_blank => "指定なし" }, class: "form-control" %>
     </div>
     <div class="col-sm-3" >
       <%= f.label :parking_present_eq, "駐車場運営", { class: "col-sm-5 col-form-label" } %>
-      <%= f.collection_select :parking_present_eq, @posts, :id, :parking_present, { :include_blank => "指定なし" }, class: "form-control"%>
+      <%= f.select :parking_present_eq, [["有", "true"], ["無", "false"]], {:include_blank => "指定なし" }, {class: "form-control"} %>
     </div>
   <div>
   <div class="form-group">
@@ -41,7 +41,6 @@
             <td>
             </td>
             <td><%= post.id %></td>
-              
             <td><%= link_to post.client_name, post_path(post) %></td>
             <td><%= post.email %></td>
             <td><%= post.parking_address %></td>

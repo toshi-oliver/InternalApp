@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_145956) do
+ActiveRecord::Schema.define(version: 2019_08_28_200524) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "client_name", null: false
@@ -52,5 +52,4 @@ ActiveRecord::Schema.define(version: 2019_08_28_145956) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "posts", "users"
 end
