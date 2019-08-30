@@ -1,0 +1,98 @@
+<h2 class="mt-4" style="text-align: center;">登録内容の確認</h2>
+<div class="post-confirm-wrapper">
+<%= form_with model: @post, local: true do |f| %>
+  <div class='post-confirm-list'>
+    <table class="table table-hover posts__table">
+      <tbody>
+        <tr>
+          <th>氏名:</th>
+          <td><%= @post.client_name %></td>
+          <%= f.hidden_field :client_name %>
+        </tr>
+        <tr>
+          <th>メール:</th>
+          <td><%= @post.email %></td>
+          <%= f.hidden_field :email %>
+        </tr>
+        <tr>
+          <th>最寄駅:</th>
+          <td><%= @post.near_station %></td>
+          <%= f.hidden_field :near_station %>
+        </tr>
+        <tr>
+          <th>住所:</th>
+          <td><%= @post.parking_address %></td>
+          <%= f.hidden_field :parking_address %>
+        </tr>
+        <tr>
+          <th>運営有無:</th>
+          <td><%= @post.parking_present? ? "有" : "無" %></td>
+          <%= f.hidden_field :parking_present %>
+        </tr>
+        <tr>
+          <th>運営期間:</th>
+          <td><%= @post.year_period %>年<%= @post.month_period %>ヶ月</td>
+          <%= f.hidden_field :year_period %>
+          <%= f.hidden_field :month_period %>
+        </tr>
+        <tr>
+          <th>中途解約金有無:</th>
+          <td><%= @post.midterm_cancellation? ? "有" : "無" %></td>
+          <%= f.hidden_field :midterm_cancellation %>
+        </tr>
+        <tr>
+          <th>中途解約金:</th>
+          <td><%= @post.cancellation_money %>円</td>
+          <%= f.hidden_field :cancellation_money %>
+        </tr>
+        <tr>
+          <th>1ヵ月賃料:</th>
+          <td><%= @post.rent %>円/月</td>
+          <%= f.hidden_field :rent %>
+        </tr>
+        <tr>
+          <th>税区分:</th>
+          <td><%= @post.tax_type  %></td>
+          <%= f.hidden_field :tax_type %>
+        </tr>
+        <tr>
+          <th>土地の状況:</th>
+          <td><%= @post.land_estate %></td>
+          <%= f.hidden_field :land_estate %>
+        </tr>
+        <tr>
+          <th>駐車可能な台数:</th>
+          <td><%= @post.parking_possible_number %></td>
+          <%= f.hidden_field :parking_possible_number %>
+        </tr>
+        <tr>
+          <th>駐車場面積:</th>
+          <td><%= @post.parking_size %><%= @post.parking_size_unit %></td>
+          <%= f.hidden_field :parking_size %>
+          <%= f.hidden_field :parking_size_unit %>
+        </tr>
+        <tr>
+          <th>利用期間:</th>
+          <td>開始:<%= @post.start_date %><br>終了:<%= @post.end_date %></td>
+          <%= f.hidden_field :start_date %>
+          <%= f.hidden_field :end_date %>
+        </tr>
+        <tr>
+          <th>希望の1ヶ月賃料:</th>
+          <td><%= @post.desired_rent %></td>
+          <%= f.hidden_field :desired_rent %>
+        </tr>
+        <tr>
+          <th>その他特記事項(顧客):</th>
+          <td><%= auto_link(simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
+          <%= f.hidden_field :client_textarea %>
+        </tr>
+      </tbody>
+    </table>
+    <div class="regist-form">
+    <%= f.submit "戻る", :name => "back" , class: "btn btn-secondary mr-3" %>
+    <%= f.submit "登録", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+</div>
