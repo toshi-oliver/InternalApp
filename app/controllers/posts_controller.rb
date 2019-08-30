@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, except: [:new, :create]
+  before_action :require_login, except: [:new, :create, :confirm_new]
   before_action :confirm_current_user, only: [:create, :confirm_new]
 
   def index
@@ -13,14 +13,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
 
     if params[:back]
-        redirect_to new_post_path(@post)
+      render :new
     elsif @post.save
-        redirect_to new_post_path(@post), notice: "「#{@post.client_name}様」の査定申し込みを受け付けました。"
+      redirect_to new_post_path(@post), notice: "「#{@post.client_name}様」の査定申し込みを受け付けました。"
     else
-        redirect_to new_post_path(@post)
+      render :new
         #このパスに引数を設定してやらなと、post.saveがfalseでnewアクションが呼び出された時に、postインスタンスがない状態になるのでエラーが発生
     end
   end
@@ -50,6 +49,7 @@ class PostsController < ApplicationController
   end
 
   def confirm_new
+
     redirect_to new_post_path(@post) unless @post.valid?
   end
 

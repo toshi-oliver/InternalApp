@@ -87,25 +87,12 @@
           <td><%= auto_link(simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
           <%= f.hidden_field :client_textarea %>
         </tr>
-        <tr>
-          <th>その他特記事項(社員用):</th>
-          <td><%= auto_link(simple_format(h(@post.user_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
-          <%= f.hidden_field :user_textarea %>
-        </tr>
-        <tr>
-          <th>作成日時:</th>
-          <td><%= @post.created_at%></td>
-          <%= f.hidden_field :created_at %>
-        </tr>
-        <tr>
-          <th>更新日時:</th>
-          <td><%= @post.updated_at%></td>
-          <%= f.hidden_field :updated_at %>
-        </tr>
       </tbody>
     </table>
+    <div class="regist-form">
     <%= f.submit "戻る", :name => "back" , class: "btn btn-secondary mr-3" %>
-    <%= f.submit "登録する", class: "btn btn-primary" %>
+    <%= f.submit "登録", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>
 </div>
