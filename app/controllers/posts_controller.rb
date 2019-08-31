@@ -10,6 +10,11 @@ class PostsController < ApplicationController
 
   def show
       @post = Post.find(params[:id])
+
+      respond_to do |format|
+        format.html
+        format.csv { send_data render_to_string, filename: "parking-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+      end
   end
 
   def create
