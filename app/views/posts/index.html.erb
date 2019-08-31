@@ -49,7 +49,11 @@
             <td><%= post.parking_present? ? "有" : "無" %></td>
             <td><%= post.rent %></td>
             <td><%= post.parking_possible_number %></td>
-            <td><%= post.user %></td>
+          <% if post.user_id.present? %>
+            <td><%= post.user.name %></td>
+          <% else %>
+            <td>none</td>
+          <% end %>
             <td><%= post.client_textarea %></td>
             <td><%= post.user_textarea %></td>
           </tr>
