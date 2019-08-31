@@ -32,6 +32,7 @@
           <th>運営</th>
           <th>賃料<br>(¥/月)</th>
           <th>駐車台数</th>
+          <th>担当者</th>
           <th>特記事項<br>(顧客用)</th>
           <th>特記事項<br>(社員用)</th>
         </tr>
@@ -48,9 +49,10 @@
             <td><%= post.parking_present? ? "有" : "無" %></td>
             <td><%= post.rent %></td>
             <td><%= post.parking_possible_number %></td>
+            <td><%= post.user %></td>
             <td><%= post.client_textarea %></td>
             <td><%= post.user_textarea %></td>
-        　</tr>
+          </tr>
         <% end %>
       </tbody>
     </table>

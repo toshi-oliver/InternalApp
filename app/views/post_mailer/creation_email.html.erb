@@ -1,0 +1,23 @@
+<p>ご利用ありがとうございます。</p>
+<p>以下の内容を承りました。</p>
+<p>※営業日5日以内にご連絡差し上げます。</p>
+-----------------------------------------------
+
+<ul>
+  <li>氏名:<%= @post.client_name %></li>
+  <li>メール:<%= @post.email %></li>
+  <li>駐車場最寄駅:<%= @post.near_station %></li>
+  <li>駐車場住所:<%= @post.parking_address %></li>
+  <li>駐車場運営の有無:<%= @post.parking_present? ? "「有」" : "「無」" %></li>
+  <li>運営期間:<%= @post.year_period %>年<%= @post.month_period %>ヶ月</li>
+  <li>中途解約金の有無:<%= @post.midterm_cancellation? ? "「有」" : "「無」"%></li>
+  <li>中途解約金:<%= @post.cancellation_money %></li>
+  <li>1ヶ月賃料:<%= @post.rent %>円/月</li>
+  <li>税区分:<%= @post.client_name %></li>
+  <li>土地の状況:<%= @post.client_name %></li>
+  <li>駐車可能な台数:<%= @post.client_name %></li>
+  <li>駐車場面積:<%= @post.parking_size %><%= @post.parking_size_unit %></li>
+  <li>利用期間:開始:<%= @post.start_date %>〜終了:<%= @post.end_date %></li>
+  <li>希望の1ヶ月賃料:<%= @post.desired_rent %></li>
+  <li>その他特記事項:<%= auto_link(simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div")) %></li>
+</ul>
