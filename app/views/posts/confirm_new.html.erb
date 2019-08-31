@@ -10,22 +10,22 @@
           <%= f.hidden_field :client_name %>
         </tr>
         <tr>
-          <th>メール:</th>
+          <th>メールアドレス:</th>
           <td><%= @post.email %></td>
           <%= f.hidden_field :email %>
         </tr>
         <tr>
-          <th>最寄駅:</th>
+          <th>駐車場の最寄駅:</th>
           <td><%= @post.near_station %></td>
           <%= f.hidden_field :near_station %>
         </tr>
         <tr>
-          <th>住所:</th>
+          <th>駐車場の住所:</th>
           <td><%= @post.parking_address %></td>
           <%= f.hidden_field :parking_address %>
         </tr>
         <tr>
-          <th>運営有無:</th>
+          <th>駐車場運営の有無:</th>
           <td><%= @post.parking_present? ? "有" : "無" %></td>
           <%= f.hidden_field :parking_present %>
         </tr>
@@ -36,7 +36,7 @@
           <%= f.hidden_field :month_period %>
         </tr>
         <tr>
-          <th>中途解約金有無:</th>
+          <th>中途解約金の有無:</th>
           <td><%= @post.midterm_cancellation? ? "有" : "無" %></td>
           <%= f.hidden_field :midterm_cancellation %>
         </tr>
@@ -83,7 +83,7 @@
           <%= f.hidden_field :desired_rent %>
         </tr>
         <tr>
-          <th>その他特記事項(顧客):</th>
+          <th>その他特記事項:</th>
           <td><%= auto_link(simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
           <%= f.hidden_field :client_textarea %>
         </tr>
@@ -91,7 +91,7 @@
     </table>
     <div class="regist-form">
     <%= f.submit "戻る", :name => "back" , class: "btn btn-secondary mr-3" %>
-    <%= f.submit "登録", class: "btn btn-primary" %>
+    <%= f.submit "送信", class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

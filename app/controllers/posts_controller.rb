@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
       @q = Post.ransack(params[:q])
       @posts = @q.result(distinct: true).page(params[:page]).recent
-      @users = User.all
+      @users = User.all.includes(:posts)
   end
 
   def show
@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     if params[:back]
       render :new
     elsif @post.save
+      PostMailer.creation_email(@post).deliver_now
       redirect_to new_post_path(@post), notice: "「#{@post.client_name}様」の査定申し込みを受け付けました。"
     else
       render :new

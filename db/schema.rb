@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_200524) do
+ActiveRecord::Schema.define(version: 2019_08_31_023752) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "client_name", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_200524) do
     t.integer "desired_rent"
     t.text "client_textarea"
     t.text "user_textarea"
-    t.bigint "user_id"
+    t.bigint "user_id", default: 0
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2019_08_28_200524) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
+    t.string "name", default: false
+    t.string "email"
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
