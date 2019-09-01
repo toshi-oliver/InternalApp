@@ -1,21 +1,22 @@
 <nav class="nav-main__nav" id="sidebar-wrapper">
   <ul class="nav-main">
-    <li class="nav-main__home">
+    <li class="nav-main__item">
       <a class="nav-main__link" href="/">
         <i class="nav-main__icon fa fa-file-text-o"></i>
-        <span class="nav-main__label">On Tech</span>
+        <span class="nav-main__label" style="font-family: 'Roboto', sans-serif;">On Tech</span>
       </a>
     </li>
     <li class="nav-main__item">
       <a class="nav-main__link" href="/">
-        <i class="nav-main__icon fa fa-file-text-o"></i>
-        <span class="nav-main__label">HOME</span>
+        <i class="nav-main__icon fa-2x fas fa-home "></i>
       </a>
     </li>
+    <li class="nav-main__item">
     <% if @current_user %>
-    <li class="nav-main__item">
-      <%= link_to 'LIST', posts_path, class: "nav-main__link" %>
-    </li>
+      <a class="nav-main__link" href="/posts">
+        <i class="nav-main__icon fas fa-file-alt fa-2x"></i>
+      </a>
     <% end %>
+    </li>
   </ul>
 </nav>

@@ -9,7 +9,9 @@
       <%= link_to '一覧', posts_path, class: 'btn btn-info' %>
       <%= link_to '編集', edit_post_path(@post), class: 'btn btn-warning' %>
       <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
-      <%= link_to 'エクスポート', post_path(format: :csv), class: 'btn btn-primary justify-content-end' %>
+      <%= link_to post_path(format: :csv) do %>
+        <i class="fas fa-file-csv fa-2x" style="color: #75A9FF;float: right;"></i>
+      <% end %>
     </div>
       <table class="table table-hover posts__table">
         <tbody>
@@ -21,6 +23,11 @@
             <th>メール:</th>
             <td><%= @post.email %></td>
           </tr>
+          <tr>
+            <th>携帯番号:</th>
+            <td><%= @post.phone_number %></td>
+          </tr>
+          <tr>
           <tr>
             <th>最寄駅:</th>
             <td><%= @post.near_station %></td>
@@ -34,12 +41,20 @@
             <td><%= @post.parking_present? ? "有" : "無" %></td>
           </tr>
           <tr>
+            <th>契約会社:</th>
+            <td><%= @post.contract_company %></td>
+          </tr>
+          <tr>
             <th>運営期間:</th>
             <td><%= @post.year_period %>年<%= @post.month_period %>ヶ月</td>
           </tr>
           <tr>
             <th>中途解約金有無:</th>
             <td><%= @post.midterm_cancellation? ? "有" : "無" %></td>
+          </tr>
+          <tr>
+            <th>解約告知期間:</th>
+            <td><%= @post.cancellation_period %>ヶ月</td>
           </tr>
           <tr>
             <th>中途解約金:</th>
@@ -74,11 +89,11 @@
             <td><%= @post.desired_rent %></td>
           </tr>
           <tr>
-            <th>その他特記事項(顧客):</th>
+            <th>その他特記事項<br>(顧客):</th>
             <td><%= auto_link(simple_format(h(@post.client_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
           </tr>
           <tr>
-            <th>その他特記事項(社員用):</th>
+            <th>その他特記事項<br>(社員):</th>
             <td><%= auto_link(simple_format(h(@post.user_textarea),{}, sanitize: false, wrapper_tag: "div")) %></td>
           </tr>
           <tr>

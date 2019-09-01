@@ -62,7 +62,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:client_name, :email, :near_station, :parking_address, :parking_present, :year_period, :month_period, :midterm_cancellation, :cancellation_money, :rent, :tax_type, :land_estate, :parking_possible_number, :parking_size, :parking_size_unit, :start_date, :end_date, :desired_rent, :client_textarea, :user_textarea)
+    params.require(:post).permit(:client_name, :email, :phone_number, :near_station, :parking_address, :parking_present, :contract_company, :year_period, :month_period, :midterm_cancellation, :cancellation_period, :cancellation_money, :rent, :tax_type, :land_estate, :parking_possible_number, :parking_size, :parking_size_unit, :start_date, :end_date, :desired_rent, :client_textarea, :user_textarea)
   end
 
   def require_login
