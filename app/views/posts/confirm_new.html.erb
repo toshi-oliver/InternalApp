@@ -15,6 +15,12 @@
           <%= f.hidden_field :email %>
         </tr>
         <tr>
+          <th>ご連絡先:</th>
+          <td><%= @post.phone_number %></td>
+          <%= f.hidden_field :phone_number %>
+        </tr>
+        <tr>
+        <tr>
           <th>駐車場の最寄駅:</th>
           <td><%= @post.near_station %></td>
           <%= f.hidden_field :near_station %>
@@ -30,6 +36,11 @@
           <%= f.hidden_field :parking_present %>
         </tr>
         <tr>
+          <th>契約会社:</th>
+          <td><%= @post.contract_company %></td>
+          <%= f.hidden_field :contract_company %>
+        </tr>
+        <tr>
           <th>運営期間:</th>
           <td><%= @post.year_period %>年<%= @post.month_period %>ヶ月</td>
           <%= f.hidden_field :year_period %>
@@ -39,6 +50,11 @@
           <th>中途解約金の有無:</th>
           <td><%= @post.midterm_cancellation? ? "有" : "無" %></td>
           <%= f.hidden_field :midterm_cancellation %>
+        </tr>
+        <tr>
+          <th>解約告知期間:</th>
+          <td><%= @post.cancellation_period %>ヶ月</td>
+          <%= f.hidden_field :cancellation_period %>
         </tr>
         <tr>
           <th>中途解約金:</th>
@@ -89,6 +105,7 @@
         </tr>
       </tbody>
     </table>
+    <p>※営業日5日以内にご連絡差し上げます。</p>
     <div class="regist-form">
     <%= f.submit "戻る", :name => "back" , class: "btn btn-secondary mr-3" %>
     <%= f.submit "送信", class: "btn btn-primary" %>

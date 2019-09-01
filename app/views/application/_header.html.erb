@@ -2,14 +2,15 @@
   <button class="fas fa-bars fa-2x" id="menu-toggle"></button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item">
       <% if @current_user %>
+      <li class="nav-item">
         <%= link_to 'ユーザーリスト', admin_users_path, class: 'btn btn-primary' %>
         <%= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary' %>
-      <% else %>
-        <%= link_to 'ログイン', login_path, class: 'btn btn-primary' %>
-      <% end %>
+        <li class="far fa-user-circle fa-2x" style="color: #75A9FF;font-size: x-large;padding-left:20px;"><%= @current_user.name %></li>
       </li>
+      <% else %>
+      <li><%= link_to 'ログイン', login_path, class: 'btn btn-primary' %></li>
+      <% end %>
     </ul>
   </div>
 </nav>

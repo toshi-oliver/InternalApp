@@ -6,11 +6,14 @@
 <ul>
   <li>氏名:<%= @post.client_name %></li>
   <li>メール:<%= @post.email %></li>
+  <li>連絡先:<%= @post.phone_number %></li>
   <li>駐車場最寄駅:<%= @post.near_station %></li>
   <li>駐車場住所:<%= @post.parking_address %></li>
   <li>駐車場運営の有無:<%= @post.parking_present? ? "「有」" : "「無」" %></li>
+  <li>契約会社名:<%= @post.contract_company %></li>
   <li>運営期間:<%= @post.year_period %>年<%= @post.month_period %>ヶ月</li>
   <li>中途解約金の有無:<%= @post.midterm_cancellation? ? "「有」" : "「無」"%></li>
+  <li>解約告知期間:<%= @post.cancellation_period %></li>
   <li>中途解約金:<%= @post.cancellation_money %></li>
   <li>1ヶ月賃料:<%= @post.rent %>円/月</li>
   <li>税区分:<%= @post.client_name %></li>
