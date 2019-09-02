@@ -1,3 +1,3 @@
 #!/bin/bash
-docker-compose -f /var/www/parking-aws-documentroot/docker-compose.yml build
-docker-compose -f /var/www/parking-aws-documentroot/docker-compose.yml up -d
+docker start /var/www/parking-aws-documentroot/docker-compose.yml
+docker restart /var/www/parking-aws-documentroot/docker-compose.yml
