@@ -28,13 +28,16 @@ https://www.minaos.tokyo/
 #### rubocopの導入
 #### RSpecによる統合テスト,単体テスト←実装中
 
-#### mackerelによる運用監視
+
 # DB設計
 draw.ioによりER図を作成しました。
 
 # 進捗管理
 以下のスプレッドシートで進捗管理を行いました。
 https://docs.google.com/spreadsheets/d/1Ox4pVepnE9jNLuCmZV4CJCjhGUjWFX-wuR5dJ_uhLDE/edit#gid=1648527996
+
+# 運用監視
+mackerel
 
 # バージョン
 - ruby2.6.3
