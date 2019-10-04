@@ -28,6 +28,7 @@ https://www.minaos.tokyo/
 #### rubocopの導入
 #### RSpecによる統合テスト,単体テスト←実装中
 
+#### mackerelによる運用監視
 # DB設計
 draw.ioによりER図を作成しました。
 
